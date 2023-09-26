@@ -1,5 +1,6 @@
 package com.example.questionservive.controller;
 
+import com.example.questionservive.model.QuestionWrapper;
 import com.example.questionservive.model.Questions;
 import com.example.questionservive.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,9 @@ public class QuestionController {
     @GetMapping("generate")
     public ResponseEntity<List<Integer>> getQuestionForQuiz(@RequestParam String categoryName, @RequestParam Integer numQuestion){
         return questionService.getQuestionForQuiz(categoryName,numQuestion);
+    }
+    @PostMapping("getQuestion")
+    public ResponseEntity<List<QuestionWrapper>> getQuestionsFromId(@RequestBody List<Integer> questionIds){
+        return questionService.getQuestionsFromId(questionIds);
     }
 }
