@@ -30,7 +30,7 @@ public class QuestionController {
         return questionService.addQuestion(question);
     }
     @GetMapping("generate")
-    public ResponseEntity<List<Integer>> getQuestionForQuiz(@RequestParam String categoryName, @RequestParam String numQuestion){
+    public ResponseEntity<List<Integer>> getQuestionForQuiz(@RequestParam String categoryName, @RequestParam Integer numQuestion){
         return questionService.getQuestionForQuiz(categoryName,numQuestion);
     }
 }
