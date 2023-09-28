@@ -1,8 +1,10 @@
 package com.example.questionservive.model;
 
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Data
+@RequiredArgsConstructor
 public class QuestionWrapper {
     private Integer id;
     private String questionTitle;
