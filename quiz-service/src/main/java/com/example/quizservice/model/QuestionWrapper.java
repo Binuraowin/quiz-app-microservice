@@ -1,10 +1,8 @@
-package com.example.questionservive.model;
+package com.example.quizservice.model;
 
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 @Data
-@RequiredArgsConstructor
 public class QuestionWrapper {
     private Integer id;
     private String questionTitle;
