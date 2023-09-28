@@ -3,6 +3,7 @@ package com.example.questionservive.service;
 import com.example.questionservive.dao.QuestionDao;
 import com.example.questionservive.model.QuestionWrapper;
 import com.example.questionservive.model.Questions;
+import com.example.questionservive.model.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -69,5 +70,16 @@ public class QuestionService {
         }
         return new ResponseEntity<>(wrappers,HttpStatus.OK);
 
+    }
+
+    public ResponseEntity<Integer> getScore(List<Response> responses) {
+
+        int right = 0;
+        for(Response response : responses){
+            Questions questions = questionDao.findById(response.getId()).get();
+            if(response.getResponse().equals(questions.getRightAnswer()))
+                right++;
+        }
+        return new ResponseEntity<>(right, HttpStatus.OK);
     }
 }

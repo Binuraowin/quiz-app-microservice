@@ -2,6 +2,7 @@ package com.example.questionservive.controller;
 
 import com.example.questionservive.model.QuestionWrapper;
 import com.example.questionservive.model.Questions;
+import com.example.questionservive.model.Response;
 import com.example.questionservive.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -37,5 +38,10 @@ public class QuestionController {
     @PostMapping("getQuestion")
     public ResponseEntity<List<QuestionWrapper>> getQuestionsFromId(@RequestBody List<Integer> questionIds){
         return questionService.getQuestionsFromId(questionIds);
+    }
+
+    @PostMapping("getScore")
+    public ResponseEntity<Integer> getScore(@RequestBody List<Response> responses){
+        return questionService.getScore(responses);
     }
 }
